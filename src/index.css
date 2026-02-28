@@ -27,4 +27,20 @@
   ::-webkit-scrollbar-thumb:hover{
     background:linear-gradient(180deg, #ABFF8D ,#5BC92E);
   }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #6FE047 #0a0a0a;
+  }
+
+  /* Hide Scrollbar for crousel */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar{
+    display: none;
+  }
 }
