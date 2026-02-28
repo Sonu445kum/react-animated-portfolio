@@ -9,7 +9,7 @@ import {
   SiMongodb
 } from "react-icons/si";
 
-import { PERSONAL_INFO, STATS } from "../../utils/constants";
+import { STATS } from "../../utils/constants";
 import { scrollToSection } from "../../hooks/useScrollSpy";
 
 const Hero = () => {
@@ -20,29 +20,31 @@ const Hero = () => {
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center px-6 lg:px-12"
+      className="relative min-h-screen flex items-center px-6 lg:px-12 pt-32"
     >
       <motion.div
         style={{ y, opacity }}
         className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center"
       >
+
         {/* ================= LEFT SIDE ================= */}
         <div className="text-center lg:text-left">
 
+          {/* Premium Animated Gradient Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight"
           >
-            Building Scalable{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
+            Building Scalable <br />
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient">
               SaaS Products
             </span>
           </motion.h1>
@@ -51,21 +53,22 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="mt-6 text-lg text-white/70 max-w-xl mx-auto lg:mx-0"
+            className="mt-6 text-lg text-white/70 max-w-xl"
           >
             Full-Stack MERN Developer crafting high-performance web
             applications with clean architecture and modern UI systems.
           </motion.p>
 
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            className="mt-8 flex gap-4 justify-center lg:justify-start"
           >
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-400 text-white font-semibold shadow-lg hover:scale-105 transition-all duration-300"
+              className="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-xl hover:scale-105 transition-all duration-300"
             >
               Get in Touch
             </button>
@@ -79,12 +82,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8"
-          >
+          <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {STATS.map((stat, index) => (
               <div key={index}>
                 <h3 className="text-2xl font-bold text-white">
@@ -95,7 +93,7 @@ const Hero = () => {
                 </p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* ================= RIGHT SIDE ================= */}
@@ -105,23 +103,36 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 1 }}
           className="flex justify-center"
         >
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 w-[360px] sm:w-[420px]">
+          <div className="relative group">
 
-            <img
-              src="/SonuImages.jpeg"
-              alt="Sonu Kumar"
-              className="object-cover w-full h-[520px]"
-            />
+            {/* Glow Border */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 blur-xl opacity-40 group-hover:opacity-70 transition duration-500" />
 
-            {/* Subtle Tech Badge Bar */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full flex gap-5 text-xl text-white/80 border border-white/10">
-              <SiReact />
-              <SiNextdotjs />
-              <SiTailwindcss />
-              <SiNodedotjs />
-              <SiMongodb />
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 w-[360px] sm:w-[420px]">
+
+              <img
+                src="/SonuImages.jpeg"
+                alt="Sonu Kumar"
+                className="object-cover w-full h-[520px]"
+              />
+
+              {/* Animated Scrolling Tech Line */}
+              <div className="absolute bottom-0 w-full bg-black/60 backdrop-blur-md py-3 overflow-hidden">
+                <div className="flex gap-10 whitespace-nowrap animate-scroll text-xl text-white/80 px-6">
+                  <SiReact />
+                  <SiNextdotjs />
+                  <SiTailwindcss />
+                  <SiNodedotjs />
+                  <SiMongodb />
+                  <SiReact />
+                  <SiNextdotjs />
+                  <SiTailwindcss />
+                  <SiNodedotjs />
+                  <SiMongodb />
+                </div>
+              </div>
+
             </div>
-
           </div>
         </motion.div>
       </motion.div>
