@@ -43,4 +43,25 @@
   .hide-scrollbar::-webkit-scrollbar{
     display: none;
   }
+
+  /* Animations Keyframes */
+  @keyframes fadeIn {
+    from{
+      opacity: 0;
+    }
+     to {
+      opacity: 1;
+     }
+  }
+
+  @keyframes pulse {
+    0% ,100%{
+      opacity: 0.3;
+    }
+    50%{
+      opacity:0.5
+    }
+  }
+
+  
 }
