@@ -18,4 +18,13 @@
     color: #ffffff;
     overflow-x:hidden;
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar-track{
+    background: linear-gradient(180deg , #8DFF69 , #6FE047);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover{
+    background:linear-gradient(180deg, #ABFF8D ,#5BC92E);
+  }
 }
