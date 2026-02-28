@@ -1,44 +1,80 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-export const useScrollSpy =(sectionIds,offset =100) =>{
-    const [activeSection , setActiveSection] = useState('');
+// ================================
+// SCROLL SPY HOOK
+// ================================
 
-    // useEffect
-    useEffect(()=>{
-        const handleScroll = ()=>{
-            const scrollPosition = window.scrollY + offset;
+export const useScrollSpy = (sectionIds = [], offset = 100) => {
+  const [activeSection, setActiveSection] = useState("");
 
-            // Find the the current positon
-            for(let i=sectionIds.length - 1 ; i>=0 ; i--){
-                const section = document.getElementById(sectionIds[i]);
-                if(section){
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-                    if(scrollPosition >= sectionTop && scrollPosition <sectionTop + sectionHeight){
-                       setActiveSection(sectionIds[i]);
-                       break; 
-                    }
-                }
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + offset;
+
+          let currentSection = "";
+
+          for (let i = 0; i < sectionIds.length; i++) {
+            const section = document.getElementById(sectionIds[i]);
+            if (!section) continue;
+
+            const { top, height } = section.getBoundingClientRect();
+            const sectionTop = window.scrollY + top;
+            const sectionBottom = sectionTop + height;
+
+            if (
+              scrollPosition >= sectionTop &&
+              scrollPosition < sectionBottom
+            ) {
+              currentSection = sectionIds[i];
             }
-        };
-        handleScroll();
-        window.addEventListener('scroll',handleScroll,{passive:true});
-        return () =>{
-            window.removeEventListener('scroll',handleScroll);
-        };
-    },[sectionIds,offset]);
+          }
 
-    return activeSection
-}
-// smooth scroll to section
-export const scrollToSection = (sectionId,offset = 80) =>{
-    const section = document.getElementById(sectionId);
-    if(section){
-        const top = section.offsetTop - offset ;
-        window.scrollTo({
-            top,
-            behavior:'smooth'
-        })
-    }
+          if (currentSection) {
+            setActiveSection(currentSection);
+          }
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [sectionIds, offset]);
+
+  return activeSection;
+};
+
+// ================================
+// SMOOTH SCROLL FUNCTION
+// ================================
+
+export const scrollToSection = (sectionId, offset = 80) => {
+  if (typeof window === "undefined") return;
+
+  const section = document.getElementById(sectionId);
+  if (!section) return;
+
+  const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+  const offsetPosition = sectionPosition - offset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
 };
