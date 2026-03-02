@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Code, Menu, X } from "lucide-react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { PERSONAL_INFO } from "../../utils/constants";
+import { useScrollSpy, scrollToSection } from "../../hooks/useScrollSpy";
 
 const navItems = [
-  { label: "About", path: "/about" },
-  { label: "Skills", path: "/skills" },
-  { label: "Projects", path: "/projects" },
-  { label: "Services", path: "/services" },
-  { label: "Contact", path: "/contact" },
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Projects", id: "projects" },
+  { label: "Services", id: "services" },
+  { label: "Contact", id: "contact" },
 ];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // 🔥 ScrollSpy
+  const activeSection = useScrollSpy(
+    navItems.map((item) => item.id),
+    120
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +33,19 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (id) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection(id);
+      }, 100);
+    } else {
+      scrollToSection(id);
+    }
+
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav
@@ -51,37 +73,32 @@ const Navbar = () => {
 
         {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-10">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
 
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                `relative text-[15px] font-medium transition-all duration-300 ${
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`relative text-[15px] font-medium transition-all duration-300 ${
                   isActive
                     ? "text-white"
                     : "text-white/70 hover:text-white"
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {item.label}
+                }`}
+              >
+                {item.label}
 
-                  {/* Animated underline */}
-                  <span
-                    className={`absolute left-0 -bottom-1 h-[2px] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500 ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                  />
-                </>
-              )}
-            </NavLink>
-          ))}
+                <span
+                  className={`absolute left-0 -bottom-1 h-[2px] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500 ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
+                />
+              </button>
+            );
+          })}
 
-          {/* CTA BUTTON */}
           <button
-            onClick={() => navigate("/contact")}
+            onClick={() => handleNavClick("contact")}
             className="ml-6 btn-primary"
           >
             Hire Me
@@ -95,43 +112,6 @@ const Navbar = () => {
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
-
-      {/* MOBILE MENU */}
-      <div
-        className={`md:hidden transition-all duration-500 overflow-hidden ${
-          isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        } backdrop-blur-2xl bg-white/5 border-t border-white/10`}
-      >
-        <div className="px-6 py-6 space-y-6">
-
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              onClick={() => setIsMenuOpen(false)}
-              className={({ isActive }) =>
-                `block text-lg transition-all duration-300 ${
-                  isActive
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
-                }`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-
-          <button
-            onClick={() => {
-              navigate("/contact");
-              setIsMenuOpen(false);
-            }}
-            className="w-full btn-primary"
-          >
-            Hire Me
-          </button>
-        </div>
       </div>
     </nav>
   );

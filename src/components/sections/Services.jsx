@@ -37,7 +37,7 @@ const Services = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <section className="relative py-28 px-6 overflow-hidden text-center text-white">
+    <section  id="services" className="relative py-28 px-6 overflow-hidden text-center text-white">
       
       {/* === Unified Premium Background === */}
 

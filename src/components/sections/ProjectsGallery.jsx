@@ -12,7 +12,7 @@ const ProjectsGallery = () => {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="relative py-28 px-6 overflow-hidden text-white">
+    <section id="projects" className="relative py-28 px-6 overflow-hidden text-white">
       
       {/* === Premium Background System === */}
 

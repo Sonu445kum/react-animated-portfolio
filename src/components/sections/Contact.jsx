@@ -45,7 +45,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden bg-transparent">
+    <section   id="contact" className="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden bg-transparent">
       
       {/* Ambient Background Glow */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 blur-[160px] rounded-full"></div>

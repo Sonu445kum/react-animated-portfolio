@@ -29,7 +29,7 @@ const skillsData = [
 
 const Skill = () => {
   return (
-    <section className="relative py-28 px-6 overflow-hidden text-white">
+    <section id="skills" className="relative py-28 px-6 overflow-hidden text-white">
 
       {/* === Unified Premium Background === */}
 
