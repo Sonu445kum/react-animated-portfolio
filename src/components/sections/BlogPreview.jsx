@@ -8,7 +8,7 @@ const blogData = [
     category: "Full Stack",
     date: "Feb 2026",
     readTime: "5 min read",
-    image: "https://source.unsplash.com/600x400/?coding",
+    image: "/public/Mern.png",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const blogData = [
     category: "AI & ML",
     date: "Jan 2026",
     readTime: "7 min read",
-    image: "https://source.unsplash.com/600x400/?artificial-intelligence",
+    image: "/public/AI.png",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const blogData = [
     category: "Frontend",
     date: "Dec 2025",
     readTime: "6 min read",
-    image: "https://source.unsplash.com/600x400/?reactjs",
+    image: "/public/React.png",
   },
 ];
 

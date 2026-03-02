@@ -22,7 +22,7 @@ const Navbar = () => {
   // 🔥 ScrollSpy
   const activeSection = useScrollSpy(
     navItems.map((item) => item.id),
-    120
+    120,
   );
 
   useEffect(() => {
@@ -56,7 +56,6 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-[1320px] mx-auto px-6 py-4 flex items-center justify-between">
-
         {/* LOGO */}
         <div
           onClick={() => navigate("/")}
@@ -81,9 +80,7 @@ const Navbar = () => {
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 className={`relative text-[15px] font-medium transition-all duration-300 ${
-                  isActive
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
+                  isActive ? "text-white" : "text-white/70 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -96,6 +93,17 @@ const Navbar = () => {
               </button>
             );
           })}
+
+          {/* DOWNLOAD RESUME BUTTON */}
+          <a
+            href="https://drive.google.com/file/d/1Sqm6VqUN-y4az6HABN9FsUM-i6yvum7x/view?usp=sharing"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-xl border border-indigo-500 text-white hover:bg-indigo-500/20 transition-all duration-300 text-sm font-medium"
+          >
+            Download Resume
+          </a>
 
           <button
             onClick={() => handleNavClick("contact")}

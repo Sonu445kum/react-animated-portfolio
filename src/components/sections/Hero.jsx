@@ -8,18 +8,20 @@ import {
   SiNodedotjs,
   SiMongodb,
   SiPython,
-  SiPhp
+  SiPhp,
 } from "react-icons/si";
 
 import { STATS } from "../../utils/constants";
 import { scrollToSection } from "../../hooks/useScrollSpy";
+
+const leetcodeLink = "https://leetcode.com/sonu445kum";
 
 const Hero = () => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
@@ -34,10 +36,8 @@ const Hero = () => {
         style={{ y, opacity }}
         className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center"
       >
-
         {/* ================= LEFT SIDE ================= */}
         <div className="text-center lg:text-left">
-
           {/* Availability Badge */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -69,9 +69,9 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="mt-6 text-lg text-white/70 max-w-xl"
           >
-            MERN Stack | Python | PHP Developer building scalable SaaS platforms,
-            secure REST APIs, and high-performance applications with clean,
-            maintainable architecture.
+            MERN Stack | Python | PHP Developer building scalable SaaS
+            platforms, secure REST APIs, and high-performance applications with
+            clean, maintainable architecture.
           </motion.p>
 
           {/* DSA + LeetCode Highlight */}
@@ -81,9 +81,16 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="mt-6 text-white/70 text-sm max-w-xl"
           >
-            💻 Actively solving Data Structures & Algorithms problems on 
-            <span className="text-yellow-400 font-semibold"> LeetCode</span> 
-            to strengthen problem-solving, system design fundamentals, and 
+            💻 Actively solving Data Structures & Algorithms problems on{" "}
+            <a
+              href={leetcodeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-400 font-semibold hover:underline"
+            >
+              LeetCode
+            </a>{" "}
+            to strengthen problem-solving, system design fundamentals, and
             optimize time & space complexity.
           </motion.div>
 
@@ -113,12 +120,8 @@ const Hero = () => {
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {STATS.map((stat, index) => (
               <div key={index}>
-                <h3 className="text-2xl font-bold text-white">
-                  {stat.value}
-                </h3>
-                <p className="text-sm text-white/60 mt-1">
-                  {stat.label}
-                </p>
+                <h3 className="text-2xl font-bold text-white">{stat.value}</h3>
+                <p className="text-sm text-white/60 mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -132,11 +135,9 @@ const Hero = () => {
           className="flex justify-center"
         >
           <div className="relative group">
-
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 blur-xl opacity-40 group-hover:opacity-70 transition duration-500" />
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 w-[360px] sm:w-[420px]">
-
               <img
                 src="/SonuImages.jpeg"
                 alt="Sonu Kumar"
@@ -162,7 +163,6 @@ const Hero = () => {
                   <SiPhp />
                 </div>
               </div>
-
             </div>
           </div>
         </motion.div>
