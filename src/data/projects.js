@@ -1,10 +1,105 @@
 export const projects = [
-  {
+   {
     id: 1,
-    title: "Scalable E-Commerce Platform",
+    title: "E-Commerce Platform (Internship Project)",
     description:
-      "Production-ready full-stack e-commerce application built using MVC architecture with secure JWT authentication, optimized database indexing, and role-based access control.",
-    image: "/images/projects/ecommerce.png",
+      "Developed a full-featured e-commerce application during internship using PHP and Laravel. Implemented MVC architecture, authentication middleware, relational database modeling, and optimized MySQL queries for scalable performance.",
+    image: "/images/projects/EcommerceIntern.png",
+    category: "Internship",
+    technologies: [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Apache Server",
+      "Bootstrap",
+      "Stripe"
+    ],
+    features: [
+      "Role-Based Authentication",
+      "Product & Inventory CRUD",
+      "Cart & Secure Checkout",
+      "Order Management Workflow",
+      "Payment Integration",
+      "Database Optimization"
+    ],
+    metrics:
+      "🚀 Reduced response time by improving relational schema design and optimizing queries",
+    demoUrl: "https://sonularavelecommerce-4.onrender.com/",
+    githubUrl: "https://github.com/Sonu445kum/sonularavelecommerce"
+  },
+
+  
+
+  {
+    id: 2,
+    title: "Scalable E-Commerce Platform (Laravel)",
+    description:
+      "Production-ready e-commerce web application built using PHP and Laravel MVC architecture. Implemented secure authentication, relational database schema design, optimized MySQL indexing, and complete order lifecycle management deployed on Apache server environment.",
+    image: "/images/projects/Screenshot 2026-03-02 115323.png",
+    category: "Full Stack",
+    technologies: [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Apache Server",
+      "phpMyAdmin",
+      "Blade Templates",
+      "Bootstrap",
+      "Stripe"
+    ],
+    features: [
+      "MVC Architecture Implementation",
+      "Role-Based Authentication (Admin/User)",
+      "Product & Inventory Management",
+      "Cart & Checkout Workflow",
+      "Order Lifecycle Management",
+      "Stripe Payment Integration",
+      "Database Index Optimization",
+      "Admin Analytics Dashboard"
+    ],
+    metrics:
+      "📈 Improved backend performance by 35% through relational query optimization and indexing",
+    demoUrl: "https://sonularavelecommerce-4.onrender.com/",
+    githubUrl: "https://github.com/Sonu445kum/sonularavelecommerce"
+  },
+   {
+    id: 3,
+    title: "Full-Stack Blogging Platform (Internship Project)",
+    description:
+      "Built a full-stack blogging platform using React.js frontend and Django REST Framework backend. Designed secure JWT authentication, RESTful APIs, relational schema, and optimized frontend-backend data flow.",
+    image: "/images/projects/BloggingIntern.png",
+    category: "Internship",
+    technologies: [
+      "JavaScript",
+      "React.js",
+      "Tailwind CSS",
+      "Python",
+      "Django REST Framework",
+      "MySQL",
+      "JWT"
+    ],
+    features: [
+      "JWT-Based Authentication",
+      "Protected API Routes",
+      "Blog CRUD Operations",
+      "Pagination & Search Filtering",
+      "Reusable React Components",
+      "Optimized API Data Handling"
+    ],
+    metrics:
+      "📈 Improved API efficiency by optimizing Django ORM queries and JSON response handling",
+    demoUrl: "https://fullstack-blogging-app-frontend-reactjs.onrender.com/",
+    githubUrl: "https://github.com/Sonu445kum/FullStack-Blogging-App-Django-React"
+  },
+  
+
+ 
+ {
+    id: 4,
+    title: "Learning Management System (LMS)",
+    description:
+      "A scalable MERN stack-based Learning Management System designed for course management, secure video streaming, role-based access control, and payment integration. Built with modular backend architecture, optimized MongoDB schema, and protected JWT authentication to simulate real-world SaaS product workflows.",
+    image: "/images/projects/LmsPic.png",
     category: "Full Stack",
     technologies: [
       "React.js",
@@ -12,68 +107,76 @@ export const projects = [
       "Node.js",
       "Express.js",
       "MongoDB",
-      "Laravel",
-      "MySQL",
-      "Stripe"
+      "JWT",
+      "Cloudinary",
+      "Razorpay"
     ],
     features: [
-      "Role-based authentication (JWT)",
-      "Cart & Checkout System",
-      "Order Management",
-      "Admin Dashboard",
-      "Database Index Optimization"
+      "Student & Admin Role-Based Authentication",
+      "Course Creation & Management Dashboard",
+      "Secure Video Upload & Streaming",
+      "Progress Tracking System",
+      "Payment Gateway Integration",
+      "Protected Routes with JWT",
+      "Optimized MongoDB Schema Design"
     ],
-    metrics: "🚀 Improved backend performance by 35% through query optimization",
-    demoUrl: "https://your-live-demo.com",
-    githubUrl: "https://github.com/yourusername/ecommerce-app"
+    metrics:
+      "🚀 Built scalable backend architecture supporting dynamic course & user management with secure payment workflow",
+    demoUrl: "https://new-lms-1.onrender.com/",
+    githubUrl: "https://github.com/Sonu445kum/LMS"
   },
+
   {
-    id: 2,
-    title: "Full-Stack Blog Application",
+    id: 5,
+    title: "Event Management System (Freelance Project)",
     description:
-      "RESTful blog platform with secure authentication, pagination, search filtering, and optimized frontend-backend JSON communication.",
-    image: "/images/projects/blog.png",
-    category: "Full Stack",
-    technologies: [
-      "React.js",
-      "Node.js",
-      "Django REST Framework",
-      "MySQL",
-      "JWT"
-    ],
-    features: [
-      "Protected API Routes",
-      "Pagination & Search Filtering",
-      "Reusable React Components",
-      "Optimized State Management",
-      "Secure User Authentication"
-    ],
-    metrics: "⚡ Reduced API response time by 25% with optimized schema design",
-    demoUrl: "https://your-live-demo.com",
-    githubUrl: "https://github.com/yourusername/blog-app"
-  },
-  {
-    id: 3,
-    title: "HR SaaS Dashboard (Internship Project)",
-    description:
-      "Developed production-level React.js UI components for HR SaaS platform during internship at Jobma, focusing on performance optimization and scalable API integration.",
-    image: "/images/projects/hr-dashboard.png",
-    category: "Web App",
+      "Client-focused MERN stack Event Management System enabling event creation, booking workflows, and admin dashboard management. Designed scalable REST APIs and optimized MongoDB data modeling.",
+    image: "/images/projects/EventsApp.png",
+    category: "Freelancing",
     technologies: [
       "React.js",
       "Redux Toolkit",
-      "Django REST",
-      "Bootstrap",
-      "REST APIs"
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT"
     ],
     features: [
-      "Reusable Component Architecture",
-      "Optimized Async Data Handling",
-      "Secure API Integration",
-      "Performance Optimization",
-      "Responsive UI"
+      "User & Admin Role-Based Access",
+      "Event Creation & Booking Workflow",
+      "Admin Dashboard",
+      "Secure JWT Authentication",
+      "Optimized MongoDB Schema"
     ],
-    metrics: "📉 Improved UI load time by 30% through async & state optimization",
+    metrics:
+      "🚀 Delivered scalable booking system with optimized backend API performance",
+    demoUrl: "#",
+    githubUrl: "#"
+  },
+
+  {
+    id: 6,
+    title: "Wedding Planning & Vendor Booking App (Freelance)",
+    description:
+      "Full-stack MERN wedding planning platform with vendor listing, booking management, and dynamic filtering system. Implemented secure authentication and structured backend API architecture.",
+    image: "/images/projects/WeddingApp.png",
+    category: "Freelancing",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT"
+    ],
+    features: [
+      "Vendor Listing & Filtering",
+      "Booking & Inquiry Management",
+      "User Dashboard",
+      "Admin Panel",
+      "Secure Authentication"
+    ],
+    metrics:
+      "📈 Designed scalable vendor-booking architecture with optimized API flow",
     demoUrl: "#",
     githubUrl: "#"
   }
@@ -82,5 +185,6 @@ export const projects = [
 export const categories = [
   "All",
   "Full Stack",
-  "Web App"
+  "Internship",
+  "Freelancing"
 ];
