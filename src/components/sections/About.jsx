@@ -5,10 +5,17 @@ const About = () => {
   return (
     <section className="relative py-28 px-6 overflow-hidden text-white">
 
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-black" />
-      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/20 blur-3xl rounded-full opacity-40" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/20 blur-3xl rounded-full opacity-40" />
+      {/* === Unified Premium Background === */}
+
+      {/* Radial Base */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#1a1a40,transparent_60%),radial-gradient(circle_at_80%_80%,#0f172a,transparent_60%)]" />
+
+      {/* Ambient Glow */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/30 blur-[160px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/20 blur-[160px] rounded-full" />
+
+      {/* Soft Overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
 
@@ -17,12 +24,14 @@ const About = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold mb-10 
+                     bg-gradient-to-r from-purple-400 via-blue-400 to-purple-500 
+                     bg-clip-text text-transparent"
         >
           About Me
         </motion.h2>
 
-        {/* Main Description */}
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -41,47 +50,63 @@ const About = () => {
         </motion.p>
 
         {/* Highlights Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
 
           <motion.div
-            whileHover={{ y: -6 }}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-lg hover:shadow-purple-500/20 transition"
+            whileHover={{ y: -8 }}
+            className="bg-white/5 backdrop-blur-2xl border border-white/10 
+                       p-8 rounded-3xl 
+                       shadow-[0_0_40px_rgba(168,85,247,0.1)] 
+                       hover:shadow-[0_0_70px_rgba(168,85,247,0.25)] 
+                       transition"
           >
             <Code2 className="mx-auto mb-4 text-purple-400" size={32} />
-            <h3 className="font-semibold mb-2">Full Stack Development</h3>
+            <h3 className="font-semibold mb-3">Full Stack Development</h3>
             <p className="text-zinc-400 text-sm">
               Production-ready MERN, Django REST & Laravel applications with scalable architecture.
             </p>
           </motion.div>
 
           <motion.div
-            whileHover={{ y: -6 }}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-lg hover:shadow-purple-500/20 transition"
+            whileHover={{ y: -8 }}
+            className="bg-white/5 backdrop-blur-2xl border border-white/10 
+                       p-8 rounded-3xl 
+                       shadow-[0_0_40px_rgba(168,85,247,0.1)] 
+                       hover:shadow-[0_0_70px_rgba(168,85,247,0.25)] 
+                       transition"
           >
             <Database className="mx-auto mb-4 text-indigo-400" size={32} />
-            <h3 className="font-semibold mb-2">Database Optimization</h3>
+            <h3 className="font-semibold mb-3">Database Optimization</h3>
             <p className="text-zinc-400 text-sm">
               Schema design, indexing, and query optimization for MongoDB & MySQL.
             </p>
           </motion.div>
 
           <motion.div
-            whileHover={{ y: -6 }}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-lg hover:shadow-purple-500/20 transition"
+            whileHover={{ y: -8 }}
+            className="bg-white/5 backdrop-blur-2xl border border-white/10 
+                       p-8 rounded-3xl 
+                       shadow-[0_0_40px_rgba(168,85,247,0.1)] 
+                       hover:shadow-[0_0_70px_rgba(168,85,247,0.25)] 
+                       transition"
           >
             <Brain className="mx-auto mb-4 text-pink-400" size={32} />
-            <h3 className="font-semibold mb-2">Problem Solving & DSA</h3>
+            <h3 className="font-semibold mb-3">Problem Solving & DSA</h3>
             <p className="text-zinc-400 text-sm">
               Solved 100+ DSA problems with strong understanding of time & space complexity.
             </p>
           </motion.div>
 
           <motion.div
-            whileHover={{ y: -6 }}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-lg hover:shadow-purple-500/20 transition"
+            whileHover={{ y: -8 }}
+            className="bg-white/5 backdrop-blur-2xl border border-white/10 
+                       p-8 rounded-3xl 
+                       shadow-[0_0_40px_rgba(168,85,247,0.1)] 
+                       hover:shadow-[0_0_70px_rgba(168,85,247,0.25)] 
+                       transition"
           >
             <Briefcase className="mx-auto mb-4 text-green-400" size={32} />
-            <h3 className="font-semibold mb-2">Industry Experience</h3>
+            <h3 className="font-semibold mb-3">Industry Experience</h3>
             <p className="text-zinc-400 text-sm">
               Software Developer Intern at Jobma, contributing to production-level HR SaaS product.
             </p>

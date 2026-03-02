@@ -30,64 +30,88 @@ const blogData = [
 
 const BlogPreview = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-zinc-900 to-black text-center px-6">
+    <section className="relative py-28 px-6 overflow-hidden text-white">
 
-      {/* Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent"
-      >
-        Latest Blogs
-      </motion.h2>
+      {/* === Unified Premium Background === */}
 
-      {/* Blog Grid */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {blogData.map((blog, index) => (
-          <motion.div
-            key={blog.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            whileHover={{ y: -10 }}
-            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-purple-500/20 transition-all duration-300 group"
-          >
-            {/* Image */}
-            <div className="relative overflow-hidden">
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-52 object-cover group-hover:scale-110 transition duration-500"
-              />
-              <span className="absolute top-4 left-4 bg-purple-600 text-xs px-3 py-1 rounded-full">
-                {blog.category}
-              </span>
-            </div>
+      {/* Radial Base */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#1a1a40,transparent_60%),radial-gradient(circle_at_80%_80%,#0f172a,transparent_60%)]" />
 
-            {/* Content */}
-            <div className="p-6 text-left">
-              <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition">
-                {blog.title}
-              </h3>
+      {/* Ambient Glow */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/30 blur-[160px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/20 blur-[160px] rounded-full" />
 
-              <div className="flex items-center text-zinc-400 text-sm space-x-4 mb-4">
-                <span className="flex items-center gap-1">
-                  <CalendarDays size={14} /> {blog.date}
+      {/* Soft Overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+
+      <div className="relative z-10">
+
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold mb-20 
+                     bg-gradient-to-r from-purple-400 via-blue-400 to-purple-500 
+                     bg-clip-text text-transparent text-center"
+        >
+          Latest Blogs
+        </motion.h2>
+
+        {/* Blog Grid */}
+        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {blogData.map((blog, index) => (
+            <motion.div
+              key={blog.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15 }}
+              whileHover={{ y: -10 }}
+              className="bg-white/5 backdrop-blur-2xl border border-white/10 
+                         rounded-3xl overflow-hidden 
+                         shadow-[0_0_40px_rgba(168,85,247,0.1)] 
+                         hover:shadow-[0_0_80px_rgba(168,85,247,0.25)] 
+                         transition-all duration-300 group"
+            >
+              {/* Image */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-52 object-cover group-hover:scale-110 transition duration-500"
+                />
+
+                <span className="absolute top-4 left-4 bg-purple-600/90 text-xs px-3 py-1 rounded-full">
+                  {blog.category}
                 </span>
-                <span className="flex items-center gap-1">
-                  <Clock size={14} /> {blog.readTime}
-                </span>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               </div>
 
-              <button className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition text-sm font-medium">
-                Read More <ArrowRight size={16} />
-              </button>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+              {/* Content */}
+              <div className="p-6 text-left">
+                <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition">
+                  {blog.title}
+                </h3>
 
+                <div className="flex items-center text-zinc-400 text-sm space-x-4 mb-5">
+                  <span className="flex items-center gap-1">
+                    <CalendarDays size={14} /> {blog.date}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock size={14} /> {blog.readTime}
+                  </span>
+                </div>
+
+                <button className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition text-sm font-medium">
+                  Read More <ArrowRight size={16} />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
     </section>
   );
 };
