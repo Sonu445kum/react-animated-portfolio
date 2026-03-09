@@ -96,7 +96,7 @@ const Navbar = () => {
 
           {/* DOWNLOAD RESUME BUTTON */}
           <a
-            href="https://drive.google.com/file/d/1Sqm6VqUN-y4az6HABN9FsUM-i6yvum7x/view?usp=sharing"
+            href="https://drive.google.com/file/d/1eWWRYv-QqoBmijajlitONEeaPRIJExNZ/view?usp=sharing"
             download
             target="_blank"
             rel="noopener noreferrer"
