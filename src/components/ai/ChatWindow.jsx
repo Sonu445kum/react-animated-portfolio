@@ -1,108 +1,73 @@
-import React, { useState, useRef, useEffect } from "react";
-import { askAI } from "../../services/openaiService";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import portfolioContext from "./aiConfig";
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([
-    {
-      role: "assistant",
-      content: "Hi 👋 I'm Sonu's AI Assistant. Ask me anything!",
-    },
+    { role: "assistant", content: "Hi 👋 I'm Sonu's AI Assistant. Ask me anything!" }
   ]);
-
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  const messagesEndRef = useRef(null);
+  const generateReply = (question) => {
+    const q = question.toLowerCase();
 
-  // Auto scroll
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    if (q.includes("skills")) {
+      return "Sonu specializes in MERN Stack, AI integrations, scalable backend systems, and premium UI design.";
+    }
 
-  const handleSend = async () => {
+    if (q.includes("experience")) {
+      return "Sonu has internship experience at Jobma AI and has built multiple scalable full stack applications.";
+    }
+
+    if (q.includes("project")) {
+      return "He has built AI platforms, eCommerce apps, portfolio systems, and real-time applications.";
+    }
+
+    return "Sonu is a Full Stack Developer focused on building intelligent digital experiences.";
+  };
+
+  const handleSend = () => {
     if (!input.trim()) return;
 
     const userMessage = { role: "user", content: input };
+    const botReply = { role: "assistant", content: generateReply(input) };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages([...messages, userMessage, botReply]);
     setInput("");
-    setLoading(true);
-
-    let botMessage = { role: "assistant", content: "" };
-
-    setMessages((prev) => [...prev, botMessage]);
-
-    await askAI(input, (token) => {
-      botMessage.content += token;
-
-      setMessages((prev) => {
-        const updated = [...prev];
-        updated[updated.length - 1] = { ...botMessage };
-        return updated;
-      });
-    });
-
-    setLoading(false);
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") handleSend();
   };
 
   return (
-    <div className="flex flex-col h-[420px] w-[320px] bg-zinc-900 rounded-2xl border border-white/10 shadow-xl">
-      ```
-      <div className="p-4 font-semibold border-b border-white/10">
-        🤖 AI Assistant
+    <div className="flex flex-col h-96 w-80 bg-zinc-900 rounded-2xl border border-white/10 shadow-xl">
+      
+      <div className="p-4 font-bold border-b border-white/10">
+        AI Assistant
       </div>
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+
+      <div className="flex-1 overflow-y-auto p-4 space-y-3">
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+            className={`text-sm p-3 rounded-xl ${
+              msg.role === "user"
+                ? "bg-purple-600 text-white self-end"
+                : "bg-white/10 text-zinc-300"
+            }`}
           >
-            {msg.role === "assistant" && (
-              <div className="w-7 h-7 bg-purple-600 rounded-full flex items-center justify-center text-xs">
-                AI
-              </div>
-            )}
-
-            <div
-              className={`text-sm p-3 rounded-xl max-w-[70%] ${
-                msg.role === "user"
-                  ? "bg-purple-600 text-white"
-                  : "bg-white/10 text-zinc-200"
-              }`}
-            >
-              {msg.content}
-            </div>
-
-            {msg.role === "user" && (
-              <div className="w-7 h-7 bg-zinc-700 rounded-full flex items-center justify-center text-xs">
-                U
-              </div>
-            )}
+            {msg.content}
           </div>
         ))}
-
-        {loading && (
-          <div className="text-zinc-400 text-xs">AI is typing...</div>
-        )}
-
-        <div ref={messagesEndRef} />
       </div>
+
       <div className="p-3 border-t border-white/10 flex gap-2">
         <input
-          className="flex-1 p-2 rounded-lg bg-black border border-white/10 text-white outline-none"
+          className="flex-1 p-2 rounded-lg bg-black border border-white/10 text-white"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyPress}
           placeholder="Ask something..."
         />
-
         <button
           onClick={handleSend}
-          className="px-4 bg-purple-600 hover:bg-purple-700 rounded-lg text-white"
+          className="px-4 bg-purple-600 rounded-lg"
         >
           Send
         </button>

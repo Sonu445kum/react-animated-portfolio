@@ -1,28 +1,19 @@
-export const askAI = async (message, onToken) => {
+import axios from "axios";
 
-const response = await fetch("http://localhost:8000/ai", {
-method: "POST",
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify({ message })
+const api = axios.create({
+  baseURL: "/api", // Your backend base URL
 });
 
-const reader = response.body.getReader();
-const decoder = new TextDecoder();
+// Send message to AI backend
+export const askAI = async (message) => {
+  try {
+    const response = await api.post("/ai", {
+      message,
+    });
 
-while (true) {
-
-
-const { done, value } = await reader.read();
-
-if (done) break;
-
-const chunk = decoder.decode(value);
-
-onToken(chunk);
-
-
-}
-
+    return response.data.reply;
+  } catch (error) {
+    console.error("AI Service Error:", error);
+    return "Something went wrong. Please try again.";
+  }
 };
