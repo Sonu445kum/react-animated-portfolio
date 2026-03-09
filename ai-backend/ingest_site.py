@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 
-from langchain.vectorstores import Chroma
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.docstore.document import Document
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_core.documents import Document
+
 
 urls = [
     "http://localhost:5173/",
@@ -11,6 +12,7 @@ urls = [
     "http://localhost:5173/projects",
     "http://localhost:5173/services"
 ]
+
 
 documents = []
 
@@ -23,6 +25,7 @@ for url in urls:
 
     documents.append(Document(page_content=text))
 
+
 embeddings = HuggingFaceEmbeddings()
 
 db = Chroma.from_documents(
@@ -33,4 +36,4 @@ db = Chroma.from_documents(
 
 db.persist()
 
-print("Portfolio indexed successfully")
+print(" Portfolio content indexed successfully!")

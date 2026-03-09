@@ -1,31 +1,28 @@
-import axios from "axios";
+export const askAI = async (message, onToken) => {
 
-// Create reusable API instance
-const api = axios.create({
-baseURL: "/api",
+const response = await fetch("http://localhost:8000/ai", {
+method: "POST",
 headers: {
-"Content-Type": "application/json",
+"Content-Type": "application/json"
 },
+body: JSON.stringify({ message })
 });
 
-// Send message to AI backend
-export const askAI = async (message, history = []) => {
-try {
-const response = await api.post("/ai", {
-message,
-history, // optional chat history for better AI context
-});
+const reader = response.body.getReader();
+const decoder = new TextDecoder();
 
-```
-return response.data.reply;
-```
+while (true) {
 
-} catch (error) {
-console.error("AI Service Error:", error);
 
-```
-return "⚠️ AI assistant is temporarily unavailable. Please try again.";
-```
+const { done, value } = await reader.read();
+
+if (done) break;
+
+const chunk = decoder.decode(value);
+
+onToken(chunk);
+
 
 }
+
 };
