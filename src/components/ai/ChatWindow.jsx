@@ -1,44 +1,37 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import portfolioContext from "./aiConfig";
+import { askAI } from "../../services/openaiService";
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([
     { role: "assistant", content: "Hi 👋 I'm Sonu's AI Assistant. Ask me anything!" }
   ]);
+
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const generateReply = (question) => {
-    const q = question.toLowerCase();
-
-    if (q.includes("skills")) {
-      return "Sonu specializes in MERN Stack, AI integrations, scalable backend systems, and premium UI design.";
-    }
-
-    if (q.includes("experience")) {
-      return "Sonu has internship experience at Jobma AI and has built multiple scalable full stack applications.";
-    }
-
-    if (q.includes("project")) {
-      return "He has built AI platforms, eCommerce apps, portfolio systems, and real-time applications.";
-    }
-
-    return "Sonu is a Full Stack Developer focused on building intelligent digital experiences.";
-  };
-
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
 
     const userMessage = { role: "user", content: input };
-    const botReply = { role: "assistant", content: generateReply(input) };
 
-    setMessages([...messages, userMessage, botReply]);
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    setLoading(true);
+
+    const reply = await askAI(input);
+
+    const botReply = {
+      role: "assistant",
+      content: reply,
+    };
+
+    setMessages((prev) => [...prev, botReply]);
+    setLoading(false);
   };
 
   return (
     <div className="flex flex-col h-96 w-80 bg-zinc-900 rounded-2xl border border-white/10 shadow-xl">
-      
+
       <div className="p-4 font-bold border-b border-white/10">
         AI Assistant
       </div>
@@ -56,6 +49,12 @@ const ChatWindow = () => {
             {msg.content}
           </div>
         ))}
+
+        {loading && (
+          <div className="text-zinc-400 text-sm">
+            AI is typing...
+          </div>
+        )}
       </div>
 
       <div className="p-3 border-t border-white/10 flex gap-2">
@@ -65,6 +64,7 @@ const ChatWindow = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask something..."
         />
+
         <button
           onClick={handleSend}
           className="px-4 bg-purple-600 rounded-lg"
