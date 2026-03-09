@@ -10,7 +10,7 @@ const Footer = () => {
   const location = useLocation();
 
   const resumeDownloadLink =
-    "https://drive.google.com/uc?export=download&id=1Sqm6VqUN-y4az6HABN9FsUM-i6yvum7x";
+    "https://drive.google.com/file/d/1eWWRYv-QqoBmijajlitONEeaPRIJExNZ/view?usp=sharing";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
