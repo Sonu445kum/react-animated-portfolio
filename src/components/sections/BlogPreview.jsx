@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 
+
 const blogData = [
   {
     id: 1,
@@ -8,7 +9,7 @@ const blogData = [
     category: "Full Stack",
     date: "Feb 2026",
     readTime: "5 min read",
-    image: "/public/Mern.png",
+    image: "/images/Mern.png",
   },
   {
     id: 2,
@@ -16,7 +17,7 @@ const blogData = [
     category: "AI & ML",
     date: "Jan 2026",
     readTime: "7 min read",
-    image: "/public/AI.png",
+    image: "/images/AI.png",
   },
   {
     id: 3,
@@ -24,7 +25,7 @@ const blogData = [
     category: "Frontend",
     date: "Dec 2025",
     readTime: "6 min read",
-    image: "/public/React.png",
+    image: "images/React.png",
   },
 ];
 
