@@ -4,7 +4,7 @@ export const projects = [
   title: "MERN Stack E-Commerce Website",
   description:
     "Built a modern full-stack e-commerce platform using the MERN stack with secure authentication, product management, cart functionality, and online payment integration. Deployed the frontend on Vercel and backend APIs on Render for scalable cloud hosting.",
-  image: "/images/projects/MernEcommerce.png",
+  image: "/images/projects/Mern-Ecommmerce.png",
   category: "Full Stack",
   technologies: [
     "MongoDB",
@@ -30,7 +30,7 @@ export const projects = [
   metrics:
     "🚀 Successfully deployed a scalable MERN e-commerce platform with optimized frontend performance and secure backend APIs",
   demoUrl: "https://new-ecommerce-website-chi.vercel.app/",
-  githubUrl: "https://github.com/Sonu445kum"
+  githubUrl: "https://github.com/Sonu445kum/New-Ecommerce-Website"
 },
    {
     id: 2,
