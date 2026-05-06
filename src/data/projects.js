@@ -4,7 +4,7 @@ export const projects = [
   title: "MERN Stack E-Commerce Website",
   description:
     "Built a modern full-stack e-commerce platform using the MERN stack with secure authentication, product management, cart functionality, and online payment integration. Deployed the frontend on Vercel and backend APIs on Render for scalable cloud hosting.",
-  image: "/images/projects/Mern-Ecommmerce.png",
+  image: "/images/Mern-Ecommmerce.png",
   category: "Full Stack",
   technologies: [
     "MongoDB",
