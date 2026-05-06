@@ -82,7 +82,7 @@ const About = () => {
             <p className="text-zinc-400 text-sm">Production Projects</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-pink-400">100+</h3>
+            <h3 className="text-3xl font-bold text-pink-400">300+</h3>
             <p className="text-zinc-400 text-sm">DSA Problems Solved</p>
           </div>
         </div>

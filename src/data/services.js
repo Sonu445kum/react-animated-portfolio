@@ -5,7 +5,7 @@ export const services = [
     title: "Frontend Development",
     description:
       "Building scalable, high-performance user interfaces using React.js, Redux Toolkit, and modern JavaScript (ES6+). Focused on reusable component architecture and optimized state management.",
-    technologies: ["React.js", "Redux Toolkit", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap"]
+    technologies: ["React.js", "Redux Toolkit", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap","Tailwind CSS"]
   },
   {
     id: 2,
@@ -37,6 +37,6 @@ export const services = [
     title: "Deployment & DevOps",
     description:
       "Deploying scalable applications using AWS, Docker, Render, and Netlify with CI/CD practices and performance monitoring.",
-    technologies: ["AWS", "Docker", "Render", "Netlify", "GitHub Actions"]
+    technologies: ["AWS", "Docker", "Render", "Netlify", "GitHub Actions","Vercel","Gitlab","GitActions","CI/CD Pipelines"]
   }
 ];

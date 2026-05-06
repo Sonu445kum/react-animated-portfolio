@@ -6,15 +6,34 @@ const experienceData = [
   {
     role: "Software Developer Intern",
     company: "Jobma AI",
-    duration: "2025 - 2026",
+    duration: "Aug 2025 - Jan 2026",
     description:
       "Built scalable frontend modules, optimized React performance, and integrated REST APIs for AI-based interview platform.",
     tech: ["React.js", "Redux Toolkit", "Node.js", "REST APIs"],
   },
   {
+  role: "MERN Stack Developer Intern",
+  company: "BR Tech Solutions Pvt. Ltd.",
+  duration: "Jun 2024 - Dec 2024",
+  description:
+    "Worked as a MERN Stack Developer Intern, building scalable full-stack web applications using React.js, Node.js, Express.js, and MongoDB. Developed secure REST APIs, optimized application performance, and contributed to cloud deployment workflows.",
+  tech: [
+    "React.js",
+    "Redux Toolkit",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "JWT Authentication",
+    "AWS",
+    "Docker",
+    "Razorpay",
+    "SendGrid"
+  ],
+},
+  {
     role: "Freelance Full Stack Developer",
     company: "Self Employed",
-    duration: "2024 - Present",
+    duration: "Aug 2023 - jan 2024",
     description:
       "Developed full-stack MERN applications including eCommerce, AI tools, and admin dashboards with secure authentication.",
     tech: ["MERN", "JWT", "Stripe", "MongoDB"],

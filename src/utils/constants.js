@@ -47,7 +47,7 @@ export const STATS = [
   { label: "Experience", value: "1+ Year" },
   { label: "Projects Built", value: "5+" },
   { label: "Technologies", value: "25+" },
-  { label: "DSA Problems Solved", value: "100+" }
+  { label: "DSA Problems Solved", value: "300+" }
 ];
 
 // ===============================

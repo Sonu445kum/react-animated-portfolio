@@ -34,7 +34,7 @@ export const skills = [
   { id: 24, name: "VS Code", icon: "Code", level: "Advanced", experience: "2+ years" },
 
   // 🔹 Core CS
-  { id: 25, name: "Data Structures & Algorithms", icon: "Brain", level: "Advanced", experience: "100+ problems solved" },
+  { id: 25, name: "Data Structures & Algorithms", icon: "Brain", level: "Advanced", experience: "300+ problems solved" },
   { id: 26, name: "OOP", icon: "Boxes", level: "Advanced", experience: "2+ years" },
   { id: 27, name: "DBMS", icon: "Layers3", level: "Advanced", experience: "2+ years" }
 ];
