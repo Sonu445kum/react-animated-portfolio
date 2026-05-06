@@ -1,6 +1,39 @@
 export const projects = [
+  {
+  id: 1,
+  title: "MERN Stack E-Commerce Website",
+  description:
+    "Built a modern full-stack e-commerce platform using the MERN stack with secure authentication, product management, cart functionality, and online payment integration. Deployed the frontend on Vercel and backend APIs on Render for scalable cloud hosting.",
+  image: "/images/projects/MernEcommerce.png",
+  category: "Full Stack",
+  technologies: [
+    "MongoDB",
+    "Express.js",
+    "React.js",
+    "Node.js",
+    "Redux Toolkit",
+    "JWT Authentication",
+    "Tailwind CSS",
+    "Vercel",
+    "Render"
+  ],
+  features: [
+    "User Authentication & Authorization",
+    "Dynamic Product Listings",
+    "Shopping Cart Functionality",
+    "Responsive UI Design",
+    "Admin Dashboard",
+    "REST API Integration",
+    "Cloud Deployment",
+    "State Management with Redux Toolkit"
+  ],
+  metrics:
+    "🚀 Successfully deployed a scalable MERN e-commerce platform with optimized frontend performance and secure backend APIs",
+  demoUrl: "https://new-ecommerce-website-chi.vercel.app/",
+  githubUrl: "https://github.com/Sonu445kum"
+},
    {
-    id: 1,
+    id: 2,
     title: "E-Commerce Platform (Internship Project)",
     description:
       "Developed a full-featured e-commerce application during internship using PHP and Laravel. Implemented MVC architecture, authentication middleware, relational database modeling, and optimized MySQL queries for scalable performance.",
@@ -31,7 +64,7 @@ export const projects = [
   
 
   {
-    id: 2,
+    id: 3,
     title: "Scalable E-Commerce Platform (Laravel)",
     description:
       "Production-ready e-commerce web application built using PHP and Laravel MVC architecture. Implemented secure authentication, relational database schema design, optimized MySQL indexing, and complete order lifecycle management deployed on Apache server environment.",
@@ -63,7 +96,7 @@ export const projects = [
     githubUrl: "https://github.com/Sonu445kum/sonularavelecommerce"
   },
    {
-    id: 3,
+    id: 4,
     title: "Full-Stack Blogging Platform (Internship Project)",
     description:
       "Built a full-stack blogging platform using React.js frontend and Django REST Framework backend. Designed secure JWT authentication, RESTful APIs, relational schema, and optimized frontend-backend data flow.",
@@ -95,7 +128,7 @@ export const projects = [
 
  
  {
-    id: 4,
+    id: 5,
     title: "Learning Management System (LMS)",
     description:
       "A scalable MERN stack-based Learning Management System designed for course management, secure video streaming, role-based access control, and payment integration. Built with modular backend architecture, optimized MongoDB schema, and protected JWT authentication to simulate real-world SaaS product workflows.",
@@ -127,7 +160,7 @@ export const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "Event Management System (Freelance Project)",
     description:
       "Client-focused MERN stack Event Management System enabling event creation, booking workflows, and admin dashboard management. Designed scalable REST APIs and optimized MongoDB data modeling.",
@@ -155,7 +188,7 @@ export const projects = [
   },
 
   {
-    id: 6,
+    id: 7,
     title: "Wedding Planning & Vendor Booking App (Freelance)",
     description:
       "Full-stack MERN wedding planning platform with vendor listing, booking management, and dynamic filtering system. Implemented secure authentication and structured backend API architecture.",
